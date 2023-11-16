@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Arbitration Blogs",
-  "version": "0.0.2",
+  "version": "0.0.3",
 
   "description": "Arbitration Blogs",
 
@@ -16,10 +16,13 @@
   },
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
+      "matches": ["https://api.arbitrationagreement.com/blogs/"],
       "js": ["content.js"],
       "run_at": "document_end"
     }
   ],
-  "host_permissions": ["https://arbitrationagreement.com/"]
+  "host_permissions": ["https://api.arbitrationagreement.com/blogs/"],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self';"
+  }
 }
